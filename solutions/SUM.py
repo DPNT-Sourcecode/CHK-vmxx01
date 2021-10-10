@@ -4,4 +4,3 @@ class sum_solution:
 
     def sum(value1: int, value2: int) -> int:
         return sum_solution.compute(value1, value2)
-

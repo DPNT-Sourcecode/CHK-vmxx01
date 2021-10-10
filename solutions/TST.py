@@ -1,3 +1,3 @@
 class one:
-    def get():
+    def get() -> int:
         return 1

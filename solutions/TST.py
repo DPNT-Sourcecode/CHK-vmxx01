@@ -1,2 +1,3 @@
-def one():
-    print("one?")
+class one:
+    def get():
+        return 1

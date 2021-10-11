@@ -1,41 +1,8 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
-PRICE_TABLE = {
-    "A": {
-        "price": 50,
-        "offers": [
-            {
-                "offer_item": "A",
-                "offer_units": 3,
-                "offer_price": 130
-            },
-           {
-                "offer_item": "A",
-                "offer_units": 3,
-                "offer_price": 130
-            }, 
-        ]
-    },
-    "B": {
-        "price": 30,
-        "offer": {
-            "offer_unit": 2,
-            "offer_price": 15
-        }
-    },
-    "C": {
-        "price": 20
-    },
-    "D": {
-        "price": 15
-    },
-    "E": {
-        "price": 40
-    }
-}
+from price_table import PRICE_TABLE
 
 def checkout(skus: str) -> int:
-    total_price = 0
     unit_tracker = {}
     for sku in skus:
         price_data = PRICE_TABLE.get(sku)
@@ -49,7 +16,7 @@ def checkout(skus: str) -> int:
         unit_tracker[sku] += 1
 
     # Manipulate the unit_tracker dict to calculate price, rather than sum in-line
-    print(unit_tracker)
+    return calculate_total_price(unit_tracker)
 
         # # Use PRICE_TABLE's sub-dict to determine how much to add to total_price
         # offer = price_data.get("offer")
@@ -63,6 +30,8 @@ def checkout(skus: str) -> int:
         #     else:
         #         total_price += price
 
-    return total_price 
+
+def calculate_total_price(basket: dict) -> int:
+    
 
 

@@ -98,17 +98,15 @@ def calculate_total_price(basket: dict) -> int:
             reverse=True
         )
         for (d_offers, d_value, d_units) in sorted_discounts:
-            while d_offers > 0 and sku_units > d_units:
+            while d_offers > 0:
+                # If remaining SKU units are too few, don't apply the offer
+                if sku_units < d_units:
+                    break
                 sku_units -= d_units
                 total_subtracted += d_value
                 d_offers -= 1
                 
-            # if d_offers >= basket[target_sku]:
-            #     total_subtracted += d_value * basket[target_sku]
-            #     basket[target_sku] = 0
-            # else:
-            #     total_subtracted += d_value * d_offers
-            #     basket[target_sku] -= d_offers
 
     return total_added - total_subtracted
+
 

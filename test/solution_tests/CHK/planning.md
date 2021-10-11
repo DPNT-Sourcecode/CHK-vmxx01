@@ -14,3 +14,9 @@
 
   - Running with that since "all offers are well balanced"
   - This logic also implies that "as long as you make an offer you benefit from it"
+
+## Handling overlapping discounts
+
+- Currently have:
+  - {"B": [(1, 15), (1, 30)]}
+

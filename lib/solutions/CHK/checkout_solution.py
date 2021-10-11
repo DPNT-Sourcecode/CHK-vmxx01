@@ -23,7 +23,7 @@ PRICE_TABLE = {
     }
 }
 
-def checkout(skus: str):
+def checkout(skus: str) -> int:
     if len(skus) == 0:
         return -1
 
@@ -40,7 +40,7 @@ def checkout(skus: str):
         
         unit_tracker[sku] += 1
 
-        # Use the sub-dict to determine how much to add to total_price
+        # Use PRICE_TABLE's sub-dict to determine how much to add to total_price
         offer = price_data.get("offer")
         price = price_data.get("price")
 

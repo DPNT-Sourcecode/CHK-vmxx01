@@ -60,12 +60,19 @@ def get_group_value(basket: dict, group_offer: dict) -> int:
         key=lambda d: d[1], 
         reverse=True
     )
-    
-    previous_remainder = {"price": 0, "qty": 0}
-    for (sku, price) in sorted_prices:
+
+    total_items = 0
+    for (sku) in sorted_prices:
         sku_quantity = basket[sku]
-        if sku_quantity + previous_remainder["price"]
-        total_value += math.floor((remainder + sku_quantity) / target_units) * group_price
+        total_items += sku_quantity
+
+    total_value += math.floor(total_items / target_units) * group_price
+
+    remainder = total_items % target_units
+    while remainder > 0:
+
+    for (sku, price) in reversed(sorted_prices):
+        sku_quantity = basket[sku]
 
 
 
@@ -151,3 +158,4 @@ def calculate_total_price(basket: dict) -> int:
                 d_offers -= 1
 
     return total_added - total_subtracted
+

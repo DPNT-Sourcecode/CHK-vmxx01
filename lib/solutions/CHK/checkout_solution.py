@@ -73,7 +73,7 @@ def get_group_value(basket: dict, group_offer: dict) -> int:
     for (sku, price) in reversed(sorted_prices):
         if remainder <= 0:
             break
-        sku_quantity = basket[sku]
+        sku_quantity = basket.get(sku, 0)
         if sku_quantity >= remainder:
             total_value += remainder * price
             remainder = 0
@@ -109,20 +109,21 @@ def calculate_total_price(basket: dict) -> int:
         # Here we assume that the price data already exists
         price_data = PRICE_TABLE.get(sku)
         price = price_data.get("price")
-        offers = price_data.get("offers", [])
+        offers = price_data.get("offers")
         
         # We assume that no other offers exist for group offers
-        target_group = offers[0].get("target_group")
+        if offers is not None:
+            target_group = offers[0].get("target_group")
 
-        # Check if this SKU is part of a group offer
-        if target_group is not None:
-            if target_group not in groups_checked:
-                total_added += get_group_value(
-                    basket, 
-                    offers[0]
-                )
-                groups_checked.append(target_group)
-            continue
+            # Check if this SKU is part of a group offer
+            if target_group is not None:
+                if target_group not in groups_checked:
+                    total_added += get_group_value(
+                        basket, 
+                        offers[0]
+                    )
+                    groups_checked.append(target_group)
+                continue
 
         sku_quantity = basket[sku]
         total_added += sku_quantity * price
@@ -165,5 +166,6 @@ def calculate_total_price(basket: dict) -> int:
                 d_offers -= 1
 
     return total_added - total_subtracted
+
 
 

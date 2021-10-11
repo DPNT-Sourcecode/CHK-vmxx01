@@ -68,7 +68,7 @@ def calculate_total_price(basket: dict) -> int:
             reverse=True
         )
         for (d_quantity, d_value) in sorted_discounts:
-            if d_quantity > basket[target_sku]:
+            if d_quantity >= basket[target_sku]:
                 total_subtracted += d_value * basket[target_sku]
                 basket[target_sku] = 0
             else:
@@ -76,4 +76,5 @@ def calculate_total_price(basket: dict) -> int:
                 basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted
+
 

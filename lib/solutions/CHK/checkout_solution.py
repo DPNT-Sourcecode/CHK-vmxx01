@@ -4,6 +4,11 @@ from .price_table import PRICE_TABLE
 import math
 
 def checkout(skus: str) -> int:
+    basket = get_sku_count(skus)
+    return calculate_total_price(basket)
+
+
+def get_sku_count(skus: str) -> dict:
     unit_tracker = {}
     for sku in skus:
         price_data = PRICE_TABLE.get(sku)
@@ -16,20 +21,7 @@ def checkout(skus: str) -> int:
         
         unit_tracker[sku] += 1
 
-    # Manipulate the unit_tracker dict to calculate price, rather than sum in-line
-    return calculate_total_price(unit_tracker)
-
-        # # Use PRICE_TABLE's sub-dict to determine how much to add to total_price
-        # offer = price_data.get("offer")
-        # price = price_data.get("price")
-
-        # if offer is None:
-        #     total_price += price
-        # else:
-        #     if unit_tracker[sku] % offer.get("offer_unit") == 0:
-        #         total_price += offer.get("offer_price")
-        #     else:
-        #         total_price += price
+    return unit_tracker
 
 
 def calculate_total_price(basket: dict) -> int:
@@ -50,7 +42,10 @@ def calculate_total_price(basket: dict) -> int:
             sorted_offers = sorted(offers, key=lambda d: d['source_units'], reverse=True)
                 
             for offer in sorted_offers:
-                times_to_apply_offer = math.floor(quantity / offer['source_units'])
+                source_units = offer['source_units']
+
+                times_to_apply_offer = math.floor(quantity / source_units)
+                quantity %= source_units
                 if times_to_apply_offer > 0:
                     target_sku = offer['target_sku']
                     if discount_tracker.get(target_sku) is None:
@@ -76,5 +71,6 @@ def calculate_total_price(basket: dict) -> int:
                 basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted
+
 
 

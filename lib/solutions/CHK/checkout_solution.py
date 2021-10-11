@@ -59,13 +59,19 @@ def calculate_total_price(basket: dict) -> int:
     total_added = 0
     total_subtracted = 0
     discount_tracker = {}
+    has_checked_group = False
     for sku in basket:
         # Here we assume that the price data already exists
         price_data = PRICE_TABLE.get(sku)
         price = price_data.get("price")
         offers = price_data.get("offers")
-        quantity = basket[sku]
 
+        # Check if this SKU is part of a group offer
+        if offers.get("target_group") is not None and has_checked_group is False:
+            handle_group(basket, discount_tracker, has_checked_group)
+            continue
+        
+        quantity = basket[sku]
         total_added += quantity * price
 
         if offers is not None:
@@ -107,3 +113,4 @@ def calculate_total_price(basket: dict) -> int:
                 
 
     return total_added - total_subtracted
+

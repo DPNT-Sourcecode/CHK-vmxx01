@@ -107,7 +107,3 @@ def calculate_total_price(basket: dict) -> int:
                 
 
     return total_added - total_subtracted
-
-
-
-

@@ -56,5 +56,3 @@ PRICE_TABLE = {
         ]
     }
 }
-
-

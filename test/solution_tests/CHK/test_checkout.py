@@ -44,7 +44,3 @@ class TestCheckout():
         assert checkout("ABCDEABCDE") == 280
         assert checkout("CCADDEEBBA") == 280
         assert checkout("ABCDECBAABCABBAAAEEAA") == 665
-
-
-
-

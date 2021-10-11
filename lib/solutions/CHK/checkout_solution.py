@@ -39,6 +39,9 @@ def get_sku_count(skus: str) -> dict:
     return unit_tracker
 
 
+def get_group_value(basket: dict, discount_tracker: dict, )
+
+
 def calculate_total_price(basket: dict) -> int:
     """Generate the total price of goods in the basket
 
@@ -67,10 +70,12 @@ def calculate_total_price(basket: dict) -> int:
         offers = price_data.get("offers")
 
         # Check if this SKU is part of a group offer
-        if offers.get("target_group") is not None and has_checked_group is False:
-            handle_group(basket, discount_tracker, has_checked_group)
+        if offers.get("target_group") is not None:
+            if has_checked_group is False:
+                total_added += get_group_value(basket, discount_tracker)
+                has_checked_group = True
             continue
-        
+
         quantity = basket[sku]
         total_added += quantity * price
 
@@ -113,4 +118,5 @@ def calculate_total_price(basket: dict) -> int:
                 
 
     return total_added - total_subtracted
+
 

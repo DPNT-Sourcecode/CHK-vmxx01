@@ -59,12 +59,20 @@ def calculate_total_price(basket: dict) -> int:
                     discount_tracker[target_sku].append((times_to_apply_offer, offer['offer_discount']))
         
     for target_sku in discount_tracker:
+        if basket.get(target_sku) is None:
+            continue
+        
         sorted_discounts = sorted(
             discount_tracker[target_sku], 
             key=lambda d: d[1], 
             reverse=True
         )
-        
-
+        for (d_quantity, d_value) in sorted_discounts:
+            if d_quantity > basket[target_sku]:
+                total_subtracted += d_value * basket[target_sku]
+                basket[target_sku] = 0
+            else:
+                total_subtracted += d_value * d_quantity
+                basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted

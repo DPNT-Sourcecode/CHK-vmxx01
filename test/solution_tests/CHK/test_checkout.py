@@ -33,4 +33,5 @@ class TestCheckout():
         assert checkout("EEB") == 80
         assert checkout("EEBB") == 95
         assert checkout("EEBBB") == 125
-        assert checkout("EEEEBB") == 80
+        assert checkout("EEEEBB") == 160
+

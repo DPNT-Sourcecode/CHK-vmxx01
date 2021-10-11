@@ -14,6 +14,26 @@ class TestCheckout():
         assert checkout("D") == 15
         assert checkout("E") == 40
         assert checkout("F") == 10
+        assert checkout("G") == 20
+        assert checkout("H") == 10
+        assert checkout("I") == 35
+        assert checkout("J") == 60
+        assert checkout("K") == 80
+        assert checkout("L") == 90
+        assert checkout("M") == 15
+        assert checkout("N") == 40
+        assert checkout("O") == 10
+        assert checkout("P") == 50
+        assert checkout("Q") == 30
+        assert checkout("R") == 50
+        assert checkout("S") == 30
+        assert checkout("T") == 20
+        assert checkout("U") == 40
+        assert checkout("V") == 50
+        assert checkout("W") == 20
+        assert checkout("X") == 90
+        assert checkout("Y") == 10
+        assert checkout("Z") == 50
 
     def test_multiple_inputs(self):
         assert checkout("ABCD") == 115
@@ -31,6 +51,14 @@ class TestCheckout():
         assert checkout("FFFFF") == 40
         assert checkout("FFFFFF") == 40
         assert checkout("FAAAAAFFFFF") == 240
+        assert checkout("HHHHH") == 45
+        assert checkout("HHHHHHHHHH") == 80
+        assert checkout("KK") == 150
+        assert checkout("PPPPP") == 200
+        assert checkout("QQQ") == 80
+        assert checkout("UUUU") == 120
+        assert checkout("VV") == 90
+        assert checkout("VVV") == 130
 
     def test_unordered_inputs(self):
         assert checkout("CDBADCBAA") == 245
@@ -44,3 +72,8 @@ class TestCheckout():
         assert checkout("ABCDEABCDE") == 280
         assert checkout("CCADDEEBBA") == 280
         assert checkout("ABCDECBAABCABBAAAEEAA") == 665
+        assert checkout("NNNM") == 120
+        assert checkout("NNNMM") == 135
+        assert checkout("RRRQ") == 150
+        assert checkout("RRRQQ") == 180
+

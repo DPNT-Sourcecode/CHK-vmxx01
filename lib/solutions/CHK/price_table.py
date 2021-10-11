@@ -82,13 +82,13 @@ PRICE_TABLE = {
         "price": 60,
     },
     "K": {
-        "price": 80,
+        "price": 70,
         "offers": [
             {
                 "target_sku": "K",
                 "target_units": 2,
                 "source_units": 2,
-                "offer_discount": 10,
+                "offer_discount": 20,
             }
         ]
     },

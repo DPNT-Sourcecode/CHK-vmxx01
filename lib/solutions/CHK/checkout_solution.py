@@ -1,6 +1,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 from .price_table import PRICE_TABLE
+import math
 
 def checkout(skus: str) -> int:
     unit_tracker = {}
@@ -45,14 +46,24 @@ def calculate_total_price(basket: dict) -> int:
         total_added += quantity * price
 
         if offers is not None:
+            # Assume that discounts are better as source_units increases
             sorted_offers = sorted(offers, key=lambda d: d['source_units'], reverse=True)
                 
-            print(sorted_offers)
+            for offer in sorted_offers:
+                times_to_apply_offer = math.floor(quantity / offer['source_units'])
+                if times_to_apply_offer > 0:
+                    target_sku = offer['target_sku']
+                    if discount_tracker.get(target_sku) is None:
+                        discount_tracker[target_sku] = []
+                    
+                    discount_tracker[target_sku].append((times_to_apply_offer, offer['offer_discount']))
+
+
             # if discount_tracker[sku] is None:
             #     discount_tracker[sku] = []
             
             # discount_tracker[sku].append()
         
-
+    print(discount_tracker)
 
     return total_added - total_subtracted

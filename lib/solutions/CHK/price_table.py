@@ -146,10 +146,26 @@ PRICE_TABLE = {
         ]
     },
     "S": {
-        "price": 30,
+        "price": 20,
+        "offers": [
+            {
+                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_units": 3,
+                "source_units": 3,
+                "group_price": 45
+            }
+        ]
     },
     "T": {
         "price": 20,
+        "offers": [
+            {
+                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_units": 3,
+                "source_units": 3,
+                "group_price": 45
+            }
+        ] 
     },
     "U": {
         "price": 40,
@@ -183,12 +199,36 @@ PRICE_TABLE = {
         "price": 20,
     },
     "X": {
-        "price": 90,
+        "price": 17,
+        "offers": [
+            {
+                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_units": 3,
+                "source_units": 3,
+                "group_price": 45
+            }
+        ]
     },
     "Y": {
-        "price": 10,
+        "price": 20,
+        "offers": [
+            {
+                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_units": 3,
+                "source_units": 3,
+                "group_price": 45
+            }
+        ]
     },
     "Z": {
-        "price": 50,
+        "price": 21,
+        "offers": [
+            {
+                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_units": 3,
+                "source_units": 3,
+                "group_price": 45
+            }
+        ]
     },
 }

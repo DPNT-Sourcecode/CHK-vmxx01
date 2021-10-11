@@ -18,7 +18,7 @@ class TestCheckout():
         assert checkout("H") == 10
         assert checkout("I") == 35
         assert checkout("J") == 60
-        assert checkout("K") == 80
+        assert checkout("K") == 70
         assert checkout("L") == 90
         assert checkout("M") == 15
         assert checkout("N") == 40
@@ -26,14 +26,14 @@ class TestCheckout():
         assert checkout("P") == 50
         assert checkout("Q") == 30
         assert checkout("R") == 50
-        assert checkout("S") == 30
+        assert checkout("S") == 20
         assert checkout("T") == 20
         assert checkout("U") == 40
         assert checkout("V") == 50
         assert checkout("W") == 20
-        assert checkout("X") == 90
-        assert checkout("Y") == 10
-        assert checkout("Z") == 50
+        assert checkout("X") == 17
+        assert checkout("Y") == 20
+        assert checkout("Z") == 21
 
     def test_multiple_inputs(self):
         assert checkout("ABCD") == 115
@@ -53,7 +53,7 @@ class TestCheckout():
         assert checkout("FAAAAAFFFFF") == 240
         assert checkout("HHHHH") == 45
         assert checkout("HHHHHHHHHH") == 80
-        assert checkout("KK") == 150
+        assert checkout("KK") == 120
         assert checkout("PPPPP") == 200
         assert checkout("QQQ") == 80
         assert checkout("UUUU") == 120
@@ -76,3 +76,10 @@ class TestCheckout():
         assert checkout("NNNMM") == 135
         assert checkout("RRRQ") == 150
         assert checkout("RRRQQ") == 180
+
+    def test_group_offers(self):
+        for combo in ['STX', 'STY', 'STZ', 'SXT', 'SXY', 'SXZ', 'SYT', 'SYX', 'SYZ', 'SZT', 'SZX', 'SZY', 'TSX', 'TSY', 'TSZ', 'TXS', 'TXY', 'TXZ', 'TYS', 'TYX', 'TYZ', 'TZS', 'TZX', 'TZY', 'XST', 'XSY', 'XSZ', 'XTS', 'XTY', 'XTZ', 'XYS', 'XYT', 'XYZ', 'XZS', 'XZT', 'XZY', 'YST', 'YSX', 'YSZ', 'YTS', 'YTX', 'YTZ', 'YXS', 'YXT', 'YXZ', 'YZS', 'YZT', 'YZX', 'ZST', 'ZSX', 'ZSY', 'ZTS', 'ZTX', 'ZTY', 'ZXS', 'ZXT', 'ZXY', 'ZYS', 'ZYT', 'ZYX']:
+            assert checkout(combo) == 45
+            for letter in ['S', 'T', 'X', 'Y', 'Z']:
+                assert checkout(combo + letter) == min()
+        

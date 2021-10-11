@@ -51,8 +51,10 @@ PRICE_TABLE = {
                 "target_sku": "F",
                 "target_units": 1,
                 "source_units": 2,
-                "offer_discount": 10
+                "offer_discount": 10,
+                "min_target_units": 3
             }
         ]
     }
 }
+

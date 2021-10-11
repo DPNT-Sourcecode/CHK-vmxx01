@@ -75,6 +75,8 @@ def calculate_total_price(basket: dict) -> int:
                 
             for offer in sorted_offers:
                 source_units = offer['source_units']
+                target_units = offer['target_units']
+                offer_discount = offer['offer_discount']
 
                 times_to_apply_offer = math.floor(quantity / source_units)
                 quantity %= source_units
@@ -83,7 +85,7 @@ def calculate_total_price(basket: dict) -> int:
                     if discount_tracker.get(target_sku) is None:
                         discount_tracker[target_sku] = []
                     
-                    discount_tracker[target_sku].append((times_to_apply_offer, offer['offer_discount']))
+                    discount_tracker[target_sku].append((times_to_apply_offer, offer_discount, target_units))
         
     for target_sku in discount_tracker:
         if basket.get(target_sku) is None:
@@ -103,4 +105,5 @@ def calculate_total_price(basket: dict) -> int:
                 basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted
+
 

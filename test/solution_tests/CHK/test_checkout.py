@@ -84,3 +84,6 @@ class TestCheckout():
             for letter in ['S', 'T', 'X', 'Y', 'Z']:
                 assert checkout(combo + letter) == 45 + PRICE_TABLE[letter]['price']
         
+        assert checkout("SSSSS") == 85
+        assert checkout("SSSSSS") == 90
+        assert checkout("TTTTTT") == 90

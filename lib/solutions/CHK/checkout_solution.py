@@ -5,9 +5,13 @@ PRICE_TABLE = {
         "price": 50,
         "offers": [
             {
-            "offer_unit": 3,
-            "offer_price": 30
-        },
+                "offer_unit": 3,
+                "offer_price": 30
+            },
+            {
+                "offer_unit": 5,
+                "offer_price": 50
+            }
         ]
     },
     "B": {
@@ -42,16 +46,20 @@ def checkout(skus: str) -> int:
         
         unit_tracker[sku] += 1
 
-        # Use PRICE_TABLE's sub-dict to determine how much to add to total_price
-        offer = price_data.get("offer")
-        price = price_data.get("price")
+    # Manipulate the unit_tracker dict to calculate price, rather than sum in-line
+    print(unit_tracker)
 
-        if offer is None:
-            total_price += price
-        else:
-            if unit_tracker[sku] % offer.get("offer_unit") == 0:
-                total_price += offer.get("offer_price")
-            else:
-                total_price += price
+        # # Use PRICE_TABLE's sub-dict to determine how much to add to total_price
+        # offer = price_data.get("offer")
+        # price = price_data.get("price")
+
+        # if offer is None:
+        #     total_price += price
+        # else:
+        #     if unit_tracker[sku] % offer.get("offer_unit") == 0:
+        #         total_price += offer.get("offer_price")
+        #     else:
+        #         total_price += price
 
     return total_price 
+

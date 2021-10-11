@@ -24,6 +24,13 @@ PRICE_TABLE = {
 }
 
 def checkout(skus: str):
+    if len(skus) == 0:
+        return -1
+
     for sku in skus:
-        print(sku)
+        if PRICE_TABLE.get(sku) is None:
+            return -1
+
+        
+
 

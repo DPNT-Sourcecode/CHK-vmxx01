@@ -5,12 +5,12 @@ PRICE_TABLE = {
             {
                 "target_sku": "A",
                 "source_units": 3,
-                "offer_price": 130
+                "offer_discount": 20
             },
             {
                 "target_sku": "A",
                 "source_units": 5,
-                "offer_price": 200
+                "offer_discount": 50
             }, 
         ]
     },
@@ -20,7 +20,7 @@ PRICE_TABLE = {
             {
                 "target_sku": "B",
                 "source_units": 2,
-                "offer_price": 45
+                "offer_discount": 15
             },
         ]
     },
@@ -36,7 +36,7 @@ PRICE_TABLE = {
             {
                 "target_sku": "B",
                 "source_units": 2,
-                "offer_price": 0
+                "offer_discount": 30
             }
         ]
     }

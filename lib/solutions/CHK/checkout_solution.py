@@ -35,5 +35,3 @@ def calculate_total_price(basket: dict) -> int:
     print(basket)
 
     return 0
-
-

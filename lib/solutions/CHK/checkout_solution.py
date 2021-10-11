@@ -39,28 +39,30 @@ def get_sku_count(skus: str) -> dict:
     return unit_tracker
 
 
-def get_group_value(basket: dict, target_group: list, u) -> int:
+def get_group_value(basket: dict, group_offer: dict) -> int:
     """Get the value of items on group offer
 
     This function assumes that there are no additional offers for members of the target group offer.
 
     Args:
         basket (dict): basket of goods checked out
-        target_group (list): SKUs of the items in the group offer
+        group_offer (dict): dict containing details of the group offer
 
     Returns:
         int: total value of group offer items after applying group discounts
     """
     total_value = 0
+    target_group = group_offer['target_group']
+    target_units = group_offer['target_units']
     sorted_prices = sorted(
         [(t, PRICE_TABLE.get(t)['price']) for t in target_group],
         key=lambda d: d[1], 
         reverse=True
     )
     
-    count 
-    for (target, price) in sorted_prices:
-
+    remainder = 0
+    for (sku, price) in sorted_prices:
+        asdf
 
 
 def calculate_total_price(basket: dict) -> int:
@@ -145,5 +147,6 @@ def calculate_total_price(basket: dict) -> int:
                 
 
     return total_added - total_subtracted
+
 
 

@@ -79,190 +79,116 @@ PRICE_TABLE = {
         "price": 35,
     },
     "J": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 60,
     },
     "K": {
-        "price": 10,
+        "price": 80,
         "offers": [
             {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
+                "target_sku": "K",
+                "target_units": 2,
+                "source_units": 2,
                 "offer_discount": 10,
             }
         ]
     },
     "L": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 90,
     },
     "M": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 15,
     },
     "N": {
-        "price": 10,
+        "price": 40,
         "offers": [
             {
-                "target_sku": "F",
+                "target_sku": "M",
                 "target_units": 1,
                 "source_units": 3,
-                "offer_discount": 10,
+                "offer_discount": 15,
             }
         ]
     },
     "O": {
         "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
     },
     "P": {
-        "price": 10,
+        "price": 50,
         "offers": [
             {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
+                "target_sku": "P",
+                "target_units": 5,
+                "source_units": 5,
+                "offer_discount": 50,
             }
         ]
     },
     "Q": {
-        "price": 10,
+        "price": 30,
         "offers": [
             {
-                "target_sku": "F",
-                "target_units": 1,
+                "target_sku": "Q",
+                "target_units": 3,
                 "source_units": 3,
                 "offer_discount": 10,
             }
         ]
     },
     "R": {
-        "price": 10,
+        "price": 50,
         "offers": [
             {
-                "target_sku": "F",
+                "target_sku": "Q",
                 "target_units": 1,
                 "source_units": 3,
-                "offer_discount": 10,
+                "offer_discount": 30,
             }
         ]
     },
     "S": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 30,
     },
     "T": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 20,
     },
     "U": {
-        "price": 10,
+        "price": 40,
         "offers": [
             {
-                "target_sku": "F",
+                "target_sku": "U",
                 "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
+                "source_units": 4,
+                "offer_discount": 40,
             }
         ]
     },
     "V": {
-        "price": 10,
+        "price": 50,
         "offers": [
             {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
+                "target_sku": "V",
+                "target_units": 2,
+                "source_units": 2,
                 "offer_discount": 10,
-            }
+            },
+            {
+                "target_sku": "V",
+                "target_units": 3,
+                "source_units": 3,
+                "offer_discount": 20,
+            }, 
         ]
     },
     "W": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 20,
     },
     "X": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 90,
     },
     "Y": {
         "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
     },
     "Z": {
-        "price": 10,
-        "offers": [
-            {
-                "target_sku": "F",
-                "target_units": 1,
-                "source_units": 3,
-                "offer_discount": 10,
-            }
-        ]
+        "price": 50,
     },
 }

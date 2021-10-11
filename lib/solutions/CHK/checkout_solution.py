@@ -4,16 +4,21 @@ from .price_table import PRICE_TABLE
 import math
 
 def checkout(skus: str) -> int:
-    basket = get_sku_count(skus)
-    return calculate_total_price(basket)
+    try:
+        basket = get_sku_count(skus)
+        return calculate_total_price(basket)
+    except TypeError as e:
+        print(e)
+        return -1
 
 
 def get_sku_count(skus: str) -> dict:
+    # Returns a dict of the form {"A": 2, "B": 3}
     unit_tracker = {}
     for sku in skus:
         price_data = PRICE_TABLE.get(sku)
         if price_data is None:
-            return -1
+            raise TypeError("The SKU input is invalid.")
 
         # Update unit tracker when we find a SKU
         if sku not in unit_tracker:
@@ -71,6 +76,7 @@ def calculate_total_price(basket: dict) -> int:
                 basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted
+
 
 
 

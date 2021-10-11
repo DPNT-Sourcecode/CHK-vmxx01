@@ -105,8 +105,8 @@ def calculate_total_price(basket: dict) -> int:
                 groups_checked.append(target_group)
             continue
 
-        quantity = basket[sku]
-        total_added += quantity * price
+        sku_quantity = basket[sku]
+        total_added += sku_quantity * price
 
         if offers is not None:
             # Assume that discounts are better as source_units increases
@@ -117,8 +117,8 @@ def calculate_total_price(basket: dict) -> int:
                 target_units = offer['target_units']
                 offer_discount = offer['offer_discount']
 
-                times_to_apply_offer = math.floor(quantity / source_units)
-                quantity %= source_units
+                times_to_apply_offer = math.floor(sku_quantity / source_units)
+                sku_quantity %= source_units
                 if times_to_apply_offer > 0:
                     target_sku = offer['target_sku']
                     if discount_tracker.get(target_sku) is None:
@@ -145,8 +145,8 @@ def calculate_total_price(basket: dict) -> int:
                 total_subtracted += d_value
                 d_offers -= 1
                 
-
     return total_added - total_subtracted
+
 
 
 

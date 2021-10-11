@@ -5,13 +5,15 @@ PRICE_TABLE = {
         "price": 50,
         "offers": [
             {
-                "offer_unit": 3,
-                "offer_price": 30
+                "offer_item": "A",
+                "offer_units": 3,
+                "offer_price": 130
             },
-            {
-                "offer_unit": 5,
-                "offer_price": 50
-            }
+           {
+                "offer_item": "A",
+                "offer_units": 3,
+                "offer_price": 130
+            }, 
         ]
     },
     "B": {
@@ -62,4 +64,5 @@ def checkout(skus: str) -> int:
         #         total_price += price
 
     return total_price 
+
 

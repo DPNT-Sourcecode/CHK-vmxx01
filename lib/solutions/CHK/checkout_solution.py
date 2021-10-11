@@ -62,19 +62,26 @@ def get_group_value(basket: dict, group_offer: dict) -> int:
     )
 
     total_items = 0
-    for (sku) in sorted_prices:
-        sku_quantity = basket[sku]
+    for (sku, _) in sorted_prices:
+        sku_quantity = basket.get(sku, 0)
         total_items += sku_quantity
 
     total_value += math.floor(total_items / target_units) * group_price
 
     remainder = total_items % target_units
-    while remainder > 0:
 
     for (sku, price) in reversed(sorted_prices):
+        if remainder <= 0:
+            break
         sku_quantity = basket[sku]
+        if sku_quantity >= remainder:
+            total_value += remainder * price
+            remainder = 0
+        else:
+            total_value += sku_quantity * price
+            remainder -= sku_quantity
 
-
+    return total_value
 
 
 def calculate_total_price(basket: dict) -> int:
@@ -158,4 +165,5 @@ def calculate_total_price(basket: dict) -> int:
                 d_offers -= 1
 
     return total_added - total_subtracted
+
 

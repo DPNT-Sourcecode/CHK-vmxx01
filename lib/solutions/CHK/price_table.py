@@ -149,7 +149,7 @@ PRICE_TABLE = {
         "price": 20,
         "offers": [
             {
-                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_group": ["S", "T", "X", "Y", "Z"],
                 "target_units": 3,
                 "source_units": 3,
                 "group_price": 45
@@ -160,7 +160,7 @@ PRICE_TABLE = {
         "price": 20,
         "offers": [
             {
-                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_group": ["S", "T", "X", "Y", "Z"],
                 "target_units": 3,
                 "source_units": 3,
                 "group_price": 45
@@ -202,7 +202,7 @@ PRICE_TABLE = {
         "price": 17,
         "offers": [
             {
-                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_group": ["S", "T", "X", "Y", "Z"],
                 "target_units": 3,
                 "source_units": 3,
                 "group_price": 45
@@ -213,7 +213,7 @@ PRICE_TABLE = {
         "price": 20,
         "offers": [
             {
-                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_group": ["S", "T", "X", "Y", "Z"],
                 "target_units": 3,
                 "source_units": 3,
                 "group_price": 45
@@ -224,7 +224,7 @@ PRICE_TABLE = {
         "price": 21,
         "offers": [
             {
-                "group_discount": ["S", "T", "X", "Y", "Z"],
+                "target_group": ["S", "T", "X", "Y", "Z"],
                 "target_units": 3,
                 "source_units": 3,
                 "group_price": 45

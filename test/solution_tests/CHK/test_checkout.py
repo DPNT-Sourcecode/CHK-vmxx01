@@ -1,4 +1,5 @@
 from lib.solutions.CHK.checkout_solution import checkout
+from lib.solutions.CHK.price_table import PRICE_TABLE
 
 
 class TestCheckout():
@@ -81,5 +82,5 @@ class TestCheckout():
         for combo in ['STX', 'STY', 'STZ', 'SXT', 'SXY', 'SXZ', 'SYT', 'SYX', 'SYZ', 'SZT', 'SZX', 'SZY', 'TSX', 'TSY', 'TSZ', 'TXS', 'TXY', 'TXZ', 'TYS', 'TYX', 'TYZ', 'TZS', 'TZX', 'TZY', 'XST', 'XSY', 'XSZ', 'XTS', 'XTY', 'XTZ', 'XYS', 'XYT', 'XYZ', 'XZS', 'XZT', 'XZY', 'YST', 'YSX', 'YSZ', 'YTS', 'YTX', 'YTZ', 'YXS', 'YXT', 'YXZ', 'YZS', 'YZT', 'YZX', 'ZST', 'ZSX', 'ZSY', 'ZTS', 'ZTX', 'ZTY', 'ZXS', 'ZXT', 'ZXY', 'ZYS', 'ZYT', 'ZYX']:
             assert checkout(combo) == 45
             for letter in ['S', 'T', 'X', 'Y', 'Z']:
-                assert checkout(combo + letter) == min()
+                assert checkout(combo + letter) == 45 + PRICE_TABLE[letter]['price']
         

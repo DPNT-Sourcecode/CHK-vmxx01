@@ -76,4 +76,3 @@ class TestCheckout():
         assert checkout("NNNMM") == 135
         assert checkout("RRRQ") == 150
         assert checkout("RRRQQ") == 180
-

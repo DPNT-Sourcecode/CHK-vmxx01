@@ -24,9 +24,6 @@ PRICE_TABLE = {
 }
 
 def checkout(skus: str) -> int:
-    if len(skus) == 0:
-        return -1
-
     total_price = 0
     unit_tracker = {}
     for sku in skus:
@@ -53,5 +50,6 @@ def checkout(skus: str) -> int:
                 total_price += price
 
     return total_price 
+
 
 

@@ -13,3 +13,4 @@
     - Simpler to assume both discounts are applied; eg "EEBB" => 45 discount?
 
   - Running with that since "all offers are well balanced"
+  - This logic also implies that "as long as you make an offer you benefit from it"

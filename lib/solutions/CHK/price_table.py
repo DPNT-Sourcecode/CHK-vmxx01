@@ -43,5 +43,16 @@ PRICE_TABLE = {
                 "offer_discount": 30
             }
         ]
+    },
+    "F": {
+        "price": 10,
+        "offers": [
+            {
+                "target_sku": "F",
+                "target_units": 1,
+                "source_units": 2,
+                "offer_discount": 10
+            }
+        ]
     }
 }

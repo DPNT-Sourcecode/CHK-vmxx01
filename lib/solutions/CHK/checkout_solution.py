@@ -28,10 +28,17 @@ def checkout(skus: str):
         return -1
 
     total_price = 0
+    unit_tracker = {}
     for sku in skus:
         value = PRICE_TABLE.get(sku)
         if value is None:
             return -1
 
-        print(value)        
+    
+        if sku not in unit_tracker:
+            unit_tracker[sku] = 0
         
+        unit_tracker[sku] += 1
+
+        total_price += 
+

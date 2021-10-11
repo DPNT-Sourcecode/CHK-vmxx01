@@ -30,15 +30,28 @@ def checkout(skus: str):
     total_price = 0
     unit_tracker = {}
     for sku in skus:
-        value = PRICE_TABLE.get(sku)
-        if value is None:
+        price_data = PRICE_TABLE.get(sku)
+        if price_data is None:
             return -1
 
-    
+        # Update unit tracker when we find a SKU
         if sku not in unit_tracker:
             unit_tracker[sku] = 0
         
         unit_tracker[sku] += 1
 
-        total_price += 
+        # Use the sub-dict to determine how much to add to total_price
+        offer = price_data.get("offer")
+        price = price_data.get("price")
+
+        if offer is None:
+            total_price += price
+        else:
+            if unit_tracker[sku] % offer.get("offer_unit") == 0:
+                total_price += offer.get("offer_price")
+            else:
+                total_price += price
+
+    return total_price 
+
 

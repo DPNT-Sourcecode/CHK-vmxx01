@@ -61,7 +61,7 @@ def calculate_total_price(basket: dict) -> int:
     for target_sku in discount_tracker:
         if basket.get(target_sku) is None:
             continue
-        
+
         sorted_discounts = sorted(
             discount_tracker[target_sku], 
             key=lambda d: d[1], 
@@ -76,3 +76,4 @@ def calculate_total_price(basket: dict) -> int:
                 basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted
+

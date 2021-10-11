@@ -31,5 +31,5 @@ class TestCheckout():
     def test_cross_offers(self):
         assert checkout("EE") == 80
         assert checkout("EEB") == 80
-        assert checkout("EEBB") == 110
+        assert checkout("EEBB") == 95
         assert checkout("EEBBB") == 125

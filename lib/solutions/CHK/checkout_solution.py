@@ -1,6 +1,6 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
-from price_table import PRICE_TABLE
+from .price_table import PRICE_TABLE
 
 def checkout(skus: str) -> int:
     unit_tracker = {}
@@ -32,6 +32,8 @@ def checkout(skus: str) -> int:
 
 
 def calculate_total_price(basket: dict) -> int:
-    
+    print(basket)
+
+    return 0
 
 

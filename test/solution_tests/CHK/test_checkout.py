@@ -82,7 +82,10 @@ class TestCheckout():
         for combo in ['STX', 'STY', 'STZ', 'SXT', 'SXY', 'SXZ', 'SYT', 'SYX', 'SYZ', 'SZT', 'SZX', 'SZY', 'TSX', 'TSY', 'TSZ', 'TXS', 'TXY', 'TXZ', 'TYS', 'TYX', 'TYZ', 'TZS', 'TZX', 'TZY', 'XST', 'XSY', 'XSZ', 'XTS', 'XTY', 'XTZ', 'XYS', 'XYT', 'XYZ', 'XZS', 'XZT', 'XZY', 'YST', 'YSX', 'YSZ', 'YTS', 'YTX', 'YTZ', 'YXS', 'YXT', 'YXZ', 'YZS', 'YZT', 'YZX', 'ZST', 'ZSX', 'ZSY', 'ZTS', 'ZTX', 'ZTY', 'ZXS', 'ZXT', 'ZXY', 'ZYS', 'ZYT', 'ZYX']:
             assert checkout(combo) == 45
             for letter in ['S', 'T', 'X', 'Y', 'Z']:
-                assert checkout(combo + letter) == 45 + PRICE_TABLE[letter]['price']
+                new_combo = combo + letter
+                prices = [PRICE_TABLE[l]['price'] for l in new_combo]
+                min_value = min(prices)
+                assert checkout(combo + letter) == 45 + min_value
         
         assert checkout("SSSSS") == 85
         assert checkout("SSSSSS") == 90

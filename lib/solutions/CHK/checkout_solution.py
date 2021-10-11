@@ -66,8 +66,10 @@ def get_group_value(basket: dict, group_offer: dict) -> int:
         sku_quantity = basket.get(sku, 0)
         total_items += sku_quantity
 
+    # Handle group offers all at once
     total_value += math.floor(total_items / target_units) * group_price
 
+    # Remaining items are not part of a group offer
     remainder = total_items % target_units
 
     for (sku, price) in reversed(sorted_prices):
@@ -166,6 +168,7 @@ def calculate_total_price(basket: dict) -> int:
                 d_offers -= 1
 
     return total_added - total_subtracted
+
 
 
 

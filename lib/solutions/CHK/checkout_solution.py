@@ -4,6 +4,7 @@ from .price_table import PRICE_TABLE
 import math
 
 def checkout(skus: str) -> int:
+    """Main function to calculate checkout value"""
     try:
         basket = get_sku_count(skus)
         return calculate_total_price(basket)
@@ -13,7 +14,17 @@ def checkout(skus: str) -> int:
 
 
 def get_sku_count(skus: str) -> dict:
-    # Returns a dict of the form {"A": 2, "B": 3}
+    """Get the SKU count as a dict
+
+    Args:
+        skus (str): input of shopping items denoted by their SKU
+
+    Raises:
+        TypeError: an invalid SKU was entered into the SKUs string
+
+    Returns:
+        dict: a basket of SKUs. Keys are SKUs and values are the number of items
+    """
     unit_tracker = {}
     for sku in skus:
         price_data = PRICE_TABLE.get(sku)
@@ -30,6 +41,22 @@ def get_sku_count(skus: str) -> dict:
 
 
 def calculate_total_price(basket: dict) -> int:
+    """Generate the total price of goods in the basket
+
+    This function calculates the total price based on a basket of goods.
+    It uses two trackers: total_added and total_subtracted, to determine the value of goods and relevant offers to apply.
+    
+    Offers are tracked in the discount_tracker dict, which maps the SKUs with a list of offers available.
+
+    For each SKU, we loop through to find the "best" offer available (determined by the discount value).
+    This is then applied to the SKU with a check on the number of SKUs available to discount.
+
+    Args:
+        basket (dict): basket of goods checked out
+
+    Returns:
+        int: total value of the basket after discounts
+    """
     total_added = 0
     total_subtracted = 0
     discount_tracker = {}
@@ -76,3 +103,4 @@ def calculate_total_price(basket: dict) -> int:
                 basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted
+

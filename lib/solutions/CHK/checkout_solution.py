@@ -151,8 +151,3 @@ def calculate_total_price(basket: dict) -> int:
                 d_offers -= 1
 
     return total_added - total_subtracted
-
-
-
-
-

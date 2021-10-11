@@ -9,7 +9,6 @@ def checkout(skus: str) -> int:
         basket = get_sku_count(skus)
         return calculate_total_price(basket)
     except TypeError as e:
-        print(e)
         return -1
 
 
@@ -77,7 +76,6 @@ def calculate_total_price(basket: dict) -> int:
                 source_units = offer['source_units']
                 target_units = offer['target_units']
                 offer_discount = offer['offer_discount']
-                min_target_units = offer['min_target_units']
 
                 times_to_apply_offer = math.floor(quantity / source_units)
                 quantity %= source_units
@@ -109,6 +107,7 @@ def calculate_total_price(basket: dict) -> int:
                 
 
     return total_added - total_subtracted
+
 
 
 

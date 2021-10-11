@@ -30,6 +30,7 @@ class TestCheckout():
         assert checkout("FFFF") == 30
         assert checkout("FFFFF") == 40
         assert checkout("FFFFFF") == 40
+        assert checkout("FAAAAAFFFFF") == 240
 
     def test_unordered_inputs(self):
         assert checkout("CDBADCBAA") == 245
@@ -43,6 +44,7 @@ class TestCheckout():
         assert checkout("ABCDEABCDE") == 280
         assert checkout("CCADDEEBBA") == 280
         assert checkout("ABCDECBAABCABBAAAEEAA") == 665
+
 
 
 

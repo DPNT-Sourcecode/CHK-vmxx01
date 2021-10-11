@@ -76,7 +76,3 @@ def calculate_total_price(basket: dict) -> int:
                 basket[target_sku] -= d_quantity
 
     return total_added - total_subtracted
-
-
-
-

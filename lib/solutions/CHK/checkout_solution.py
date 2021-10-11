@@ -39,7 +39,7 @@ def get_sku_count(skus: str) -> dict:
     return unit_tracker
 
 
-def get_group_value(basket: dict, target_group: list) -> int:
+def get_group_value(basket: dict, target_group: list, u) -> int:
     """Get the value of items on group offer
 
     This function assumes that there are no additional offers for members of the target group offer.
@@ -52,18 +52,15 @@ def get_group_value(basket: dict, target_group: list) -> int:
         int: total value of group offer items after applying group discounts
     """
     total_value = 0
-    prices = sorted(
+    sorted_prices = sorted(
         [(t, PRICE_TABLE.get(t)['price']) for t in target_group],
-key=lambda d: d[1], 
-reverse=True
+        key=lambda d: d[1], 
+        reverse=True
     )
     
-    # for target in target_group:
-    #     prices.append((target, PRICE_TABLE.get(target)['price']))
+    count 
+    for (target, price) in sorted_prices:
 
-    sorted_prices = sorted(prices, )
-
-    for (target, price) in sorted_prices
 
 
 def calculate_total_price(basket: dict) -> int:
@@ -91,13 +88,18 @@ def calculate_total_price(basket: dict) -> int:
         # Here we assume that the price data already exists
         price_data = PRICE_TABLE.get(sku)
         price = price_data.get("price")
-        offers = price_data.get("offers")
-        target_group = offers.get("target_group")
+        offers = price_data.get("offers", [])
+        
+        # We assume that no other offers exist for group offers
+        target_group = offers[0].get("target_group")
 
         # Check if this SKU is part of a group offer
         if target_group is not None:
             if target_group not in groups_checked:
-                total_added += get_group_value(basket, target_group)
+                total_added += get_group_value(
+                    basket, 
+                    offers[0]
+                )
                 groups_checked.append(target_group)
             continue
 
@@ -143,4 +145,5 @@ def calculate_total_price(basket: dict) -> int:
                 
 
     return total_added - total_subtracted
+
 

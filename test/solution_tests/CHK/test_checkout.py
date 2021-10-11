@@ -24,4 +24,3 @@ class TestCheckout():
     def test_unordered_inputs(self):
         assert checkout("CDBADCBAA") == 245
     
-

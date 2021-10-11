@@ -27,10 +27,11 @@ def checkout(skus: str):
     if len(skus) == 0:
         return -1
 
+    total_price = 0
     for sku in skus:
-        if PRICE_TABLE.get(sku) is None:
+        value = PRICE_TABLE.get(sku)
+        if value is None:
             return -1
 
+        print(value)        
         
-
-

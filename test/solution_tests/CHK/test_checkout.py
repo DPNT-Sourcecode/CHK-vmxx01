@@ -3,7 +3,6 @@ from lib.solutions.CHK.checkout_solution import checkout
 
 class TestCheckout():
     def test_illegal_input(self):
-        assert checkout("E") == -1
         assert checkout("a") == -1
         assert checkout("123") == -1
 
@@ -13,14 +12,24 @@ class TestCheckout():
         assert checkout("B") == 30
         assert checkout("C") == 20
         assert checkout("D") == 15
+        assert checkout("E") == 40
 
     def test_multiple_inputs(self):
         assert checkout("ABCD") == 115
         assert checkout("AABCD") == 165
         assert checkout("AAABCD") == 195
         assert checkout("AAABB") == 175
-        assert checkout("AAAAAABBBB") == 350
+        assert checkout("AAAAAABBBB") == 340
         assert checkout("AAABBCCDD") == 245
+        assert checkout("AAAAAAAA") == 330
+        assert checkout("AAAAAAAAA") == 380
+        assert checkout("AAAAAAAAAA") == 400
 
     def test_unordered_inputs(self):
         assert checkout("CDBADCBAA") == 245
+
+    def test_cross_offers(self):
+        assert checkout("EE") == 80
+        assert checkout("EEB") == 80
+        assert checkout("EEBB") == 110
+        assert checkout("EEBBB") == 125

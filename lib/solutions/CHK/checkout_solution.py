@@ -3,10 +3,12 @@
 PRICE_TABLE = {
     "A": {
         "price": 50,
-        "offer": {
+        "offers": [
+            {
             "offer_unit": 3,
             "offer_price": 30
-        }
+        },
+        ]
     },
     "B": {
         "price": 30,
@@ -20,6 +22,9 @@ PRICE_TABLE = {
     },
     "D": {
         "price": 15
+    },
+    "E": {
+        "price": 40
     }
 }
 

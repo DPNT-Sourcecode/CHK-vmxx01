@@ -51,8 +51,19 @@ def get_group_value(basket: dict, target_group: list) -> int:
     Returns:
         int: total value of group offer items after applying group discounts
     """
+    total_value = 0
+    prices = sorted(
+        [(t, PRICE_TABLE.get(t)['price']) for t in target_group],
+key=lambda d: d[1], 
+reverse=True
+    )
     
+    # for target in target_group:
+    #     prices.append((target, PRICE_TABLE.get(target)['price']))
 
+    sorted_prices = sorted(prices, )
+
+    for (target, price) in sorted_prices
 
 
 def calculate_total_price(basket: dict) -> int:
@@ -132,3 +143,4 @@ def calculate_total_price(basket: dict) -> int:
                 
 
     return total_added - total_subtracted
+

@@ -1,4 +1,4 @@
-from solutions.CHK.checkout_solution import checkout
+from lib.solutions.CHK.checkout_solution import checkout
 
 
 class TestCheckout():
@@ -6,3 +6,4 @@ class TestCheckout():
         assert checkout("") == -1
         assert checkout("E") == -1
         assert checkout("123") == -1
+
